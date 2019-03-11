@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>component组件</title>
+    <script src="../../assets/js/vue.js"></script>
+</head>
+<body>
+
+<h1>component组件</h1>
+<hr>
+
+<div id="ppp">
+    <zr></zr>
+</div>
+<script>
+
+    var city={
+        template:`<div style="color:green;">im not zr</div>`
+    }
+var zr={
+    template:`<div>
+<p style="color:red;">i  am  zr</p>
+<city></city>
+<p>re</p>
+</div>`,
+    components:{
+        "city":city
+    }
+}
+
+
+    var ppp = new Vue({
+        el:'#ppp',
+        components:{
+            "zr":zr
+        }
+    })
+</script>
+</body>
+</html>

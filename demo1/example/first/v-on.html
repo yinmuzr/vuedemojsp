@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on</title>
+    <script src="../../assets/js/vue.js"></script>
+</head>
+<body>
+
+<h1>v-on</h1>
+<hr>
+<div id="app">
+    本场比赛得分：{{score}}
+    <p>
+        <button @click="add">add score</button>
+        <button @click="des">des score</button>
+        <br/>
+        <input type="text" @keyup.13="onenter" v-model="score2">
+    </p>
+</div>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            score:10,
+            score2:2
+        },
+        methods:{
+            add:function () {
+                 this.score++;
+            },
+            des:function () {
+                 this.score--;
+            },
+            onenter:function () {
+               this.score = this.score+parseInt(this.score2)
+            }
+        }
+    })
+</script>
+</body>
+</html>

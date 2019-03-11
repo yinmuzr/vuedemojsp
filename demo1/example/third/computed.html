@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>computed Option 计算选项</title>
+    <script src="../../assets/js/vue.js"></script>
+</head>
+<body>
+
+<h1>computed Option 计算选项</h1>
+<hr>
+<div id="app">
+    {{newprice}}
+</div>
+
+<div id="app2">
+    <p>{{newprice}}</p>
+    <ol>
+        <li v-for="item in revisenews">{{item.title}}-{{item.data}}</li>
+    </ol>
+</div>
+<script>
+    var newList=[
+    {title:'zrfgdsfhgsf',data:'2017/7/23'},
+    {title:'zrfgdsfhggffggsf',data:'2017/7/24'},
+    {title:'zrfgdsfhfghhfgsf',data:'2017/7/25'},
+    {title:'zrfgdsfhgsffgg',data:'2017/7/26'},
+];
+    var app = new Vue({
+        el:'#app',
+        data:{
+           price:100
+        },
+        computed:{
+            newprice:function () {
+                return this.price="$"+this.price+"$";
+            }
+        }
+    });
+
+    var app = new Vue({
+        el:'#app2',
+        data:{
+            newList:newList
+        },
+        computed:{
+            revisenews:function () {
+                return this.newList.reverse();
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>extend扩展选项</title>
+    <script src="../../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>extends扩展选项</h1>
+<hr>
+<div id="app">
+    {{message}}
+    <!--${message}-->
+    <p><button @click="add">add</button></p>
+</div>
+<script>
+ var extendsObj={
+     updated:function () {
+         console.log("extending");
+     },
+     methods:{
+         add:function () {
+             console.log("extendsadding");
+             this.message++;
+         }
+     }
+ };
+    var app = new Vue({
+        el:'#app',
+        data:{
+            message:5
+        },
+        methods:{
+            add:function () {
+                console.log("adding");
+                this.message++;
+            }
+        },
+        updated:function () {
+            console.log("i am updated");
+        },
+        extends:extendsObj,
+//        delimiters:['${','}']
+    })
+</script>
+</body>
+</html>

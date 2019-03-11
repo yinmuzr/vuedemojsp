@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>example02 实例方法</title>
+    <script src="../../assets/js/vue.js"></script>
+    <script src="../../assets/js/jquery3.3.1.js"></script>
+</head>
+<body>
+
+<h1>example02 实例方法</h1>
+<hr>
+<div id="app">
+
+</div>
+<p><button onclick="destroy()">destroy</button></p>
+<p><button onclick="fresh()">fresh</button></p>
+<p><button onclick="tick()">tick</button></p>
+<script>
+var zr = Vue.extend({
+    template:`<p>{{message}}</p>`,
+    data:function () {
+        return{
+            message:'hello i am zr'
+        }
+    },
+    mounted:function () {
+        console.log("mounted");
+    },
+    destroyed:function () {
+        console.log("destroyed");
+    },
+    updated:function () {
+        console.log("updated");
+    }
+})
+
+    var vm=new zr().$mount("#app");
+function destroy() {
+    vm.$destroy();
+}
+function fresh() {
+    vm.$forceUpdate();
+}
+function tick(){
+    vm.message="update message info ";
+    vm.$nextTick(function(){
+        console.log('message更新完后我被调用了');
+    })
+}
+</script>
+</body>
+</html>

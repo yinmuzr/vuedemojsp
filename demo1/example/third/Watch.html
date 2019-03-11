@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>helloworld</title>
+    <!--<script src="../assets/js/vue.js"></script>-->
+    <script src="../../assets/js/vue.js"></script>
+</head>
+<body>
+
+<h1>helloworld</h1>
+<hr>
+<div id="app">
+    <p>today dgree:{{degree}}</p>
+    <p>today cloth,{{cloth}}</p>
+    <p><button @click="add">add</button>     <button @click="dec">dec</button></p>
+</div>
+<script>
+    var cloths=['dress','Tshirt','overcoat'];
+
+    var app = new Vue({
+        el:'#app',
+        data:{
+            degree:14,
+            cloth:'dress'
+        },
+        methods:{
+            add:function(){
+                this.degree+=5;
+            },
+            dec:function(){
+                this.degree-=3;
+            }
+        },
+        watch: {}
+    })
+    app.$watch('degree',function (newval,oldval) {
+            if(newval>=26){
+                this.cloth=cloths[0];
+            }else if(newval<26 && newval>0){
+                this.cloth="colth";
+            }else {
+                this.cloth = "overcoat";
+            }
+    })
+</script>
+</body>
+</html>

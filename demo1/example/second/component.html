@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>component组件</title>
+    <script src="../../assets/js/vue.js"></script>
+</head>
+<body>
+
+<h1>component组件</h1>
+<hr>
+<div id="app">
+    <zr></zr>
+</div>
+<div id="ppp">
+    <zr></zr>
+    <zrr></zrr>
+</div>
+<script>
+    Vue.component('zr',{
+        template:` <div style="color: green;">im am 全局componet</div>`
+    });
+    var app = new Vue({
+        el:'#app'
+    });
+    var ppp = new Vue({
+        el:'#ppp'
+    });
+    var ppp = new Vue({
+        el:'#ppp',
+        components:{
+            'zrr':{
+                template:` <div style="color: grey;">im am 局部componet</div>`
+            }
+        }
+    })
+</script>
+</body>
+</html>

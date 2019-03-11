@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>example04 内置组件</title>
+    <script src="../../assets/js/vue.js"></script>
+    <script src="../../assets/js/jquery3.3.1.js"></script>
+</head>
+<body>
+
+<h1>example04 内置组件</h1>
+<hr>
+<div id="app">
+  <zri>
+      <span slot="blogurl">{{zrdata.blogurl}}</span>
+      <span slot="netname">{{zrdata.netname}}</span>
+      <span slot="skill">{{zrdata.skill}}</span>
+  </zri>
+</div>
+</div>
+<template id="tep">
+<div>
+<p>blogurl：<slot name="blogurl"></slot></p>
+<p>netname: <slot name="netname"></slot></p>
+<p>skill:  <slot name="skill"></slot></p>
+</div>
+</template>
+
+<script>
+    var zrr={
+        template:'#tep'
+    };
+
+    var app = new Vue({
+        el:'#app',
+        data:{
+            zrdata:{
+                blogurl:"http://zr.com",
+                netname:'fhf',
+                skill:'linuxc'
+            }
+        },
+        components:{
+            "zri":zrr
+        }
+    })
+</script>
+</body>
+</html>

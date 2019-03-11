@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>example03 实例事件</title>
+    <script src="../../assets/js/vue.js"></script>
+    <script src="../../assets/js/jquery3.3.1.js"></script>
+</head>
+<body>
+
+<h1>example01 实例事件</h1>
+<hr>
+<div id="app">
+    <p>{{message}}</p>
+    <button id="add" @click="add()">add</button>
+</div>
+<p><button onclick="reduce()">reduce</button></p>
+<p><button onclick="reduceOnce()">reduceOnce</button></p>
+<p><button onclick="off()">off</button></p>
+<script>
+
+    var app = new Vue({
+            el:'#app',
+            data:{
+                message:10
+            },
+            methods:{
+                add:function () {
+                        this.message++;
+                }
+            }
+        });
+    app.$on("reduce",function () { //构造器外部添加事件
+        console.log("reduce");
+        this.message--;
+    });
+    function reduce() {
+        app.$emit('reduce');//外部调用内部事件
+    }
+    app.$once('reduceOnce',function(){
+        console.log('只执行一次的方法');
+        this.num--;
+    });
+    function reduceOnce() {
+        app.$emit('reduceOnce');//外部调用内部事件
+    }
+    //关闭事件
+    function off(){
+        app.$off('reduce');
+    }
+</script>
+</body>
+</html>

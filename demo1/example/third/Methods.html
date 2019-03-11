@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Methods Option 方法选项</title>
+    <script src="../../assets/js/vue.js"></script>
+</head>
+<body>
+
+<h1>Methods Option 方法选项</h1>
+<hr>
+<div id="app">
+    <p>{{message}}</p>
+    <button id="add" @click="add(2,$event)">add</button>
+    <p><btn @click.native="add(2,$event)"></btn></p>
+</div>
+<button onclick="app.add(4)">waibu</button>
+<script>
+    var btn={
+        template:`<button>zujian</button>`
+    }
+    var app =
+        new Vue({
+        el:'#app',
+        data:{
+            message:10
+        },
+        components:{
+            "btn":btn
+        },
+        methods:{
+            add:function (num,event) {
+                if(num!=''){
+                    this.message+=num;
+                }else {
+                    this.message++;
+                }
+                console.log(event);
+            }
+        }
+    })
+</script>
+</body>
+</html>

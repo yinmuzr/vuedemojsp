@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>template模板</title>
+    <script src="../../assets/js/vue.js"></script>
+</head>
+<body>
+
+<h1>template模板</h1>
+<hr>
+<div id="app1">
+    {{message}}
+</div>
+<div id="app2">
+    {{message}}
+</div>
+<div id="app3">
+    {{message}}
+</div>
+<template id="dd2">
+    <h2 style="color: green">im is 标签模板</h2>
+</template>
+
+<script type="x-template" id="dd3">
+    <h2 style="color: grey">im is script模板</h2>
+</script>
+
+<script>
+    var app1 = new Vue({
+    el:'#app1',
+    data:{
+        message:'helloworld!11'
+    },
+    template: `
+        <h2 style="color: red">im is 选项模板</h2>
+        `
+});
+    var app2 = new Vue({
+        el:'#app2',
+        data:{
+            message:'helloworld!11'
+        },
+        template:'#dd2'
+    });
+    var app3 = new Vue({
+        el:'#app3',
+        data:{
+            message:'helloworld!11'
+        },
+        template:'#dd3'
+    });
+
+</script>
+</body>
+</html>

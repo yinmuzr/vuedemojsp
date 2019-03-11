@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>component props</title>
+    <script src="../../assets/js/vue.js"></script>
+</head>
+<body>
+
+<h1>component props</h1>
+<hr>
+<div id="ppp">
+    <zrr :from-here="message" city="xian"></zrr>
+</div>
+<script>
+    var ppp = new Vue({
+        el:'#ppp',
+        data:{
+            message:'china'
+        },
+        components:{
+            'zrr':{
+                template:` <div style="color: grey;">zrr from {{fromHere}} {{city}}</div>`,
+                props:['fromHere','city']
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.extend</title>
+    <script src="../../assets/js/vue.js"></script>
+</head>
+<body>
+
+<h1>vue.extend扩展实例子构造器</h1>
+<hr>
+<author></author>
+<div id="author"></div>
+<script>
+    var authorextend=Vue.extend({
+        template:"<p><a :href='authorurl' :title='title'>{{authorname}}</a></p>",
+        data:function () {
+            return{
+                authorname:'zr',
+                authorurl:'http://jspang.com/post/vue2-1.html',
+                title:'zhangrui'
+            }
+        }
+    });
+    new authorextend().$mount('author');
+    new authorextend().$mount('#author');
+</script>
+</body>
+</html>
+<body>
+
+</body>
+</html>

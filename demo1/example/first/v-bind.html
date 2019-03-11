@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind绑定标签</title>
+    <script src="../../assets/js/vue.js"></script>
+</head>
+<body>
+
+<h1>v-bind绑定标签</h1>
+<hr>
+<div id="app">
+    <p><img v-bind:src="imgsrc" width="200"/></p>
+    <p><a :href="weburl" target="_blank">jspang</a></p>
+    <hr>
+    <div :class="classname">1_bind class</div>
+    <div :class="{classa:isOK}">2_bind judgement</div>
+    <div :class="[classa,classb]">3_bind judgementarray</div>
+    <div :class="isOK?classa:classb">4_bind three</div>
+     <hr>
+    <div>
+        <input type="checkbox" id="isOK" v-model="isOK">
+        <lable for="isOK">isOK={{isOK}}</lable>
+    </div>
+    <hr>
+    <div :style="{color:red,fontSize:font}">5_bindstyle</div>
+    <hr>
+    <div :style="styleobject">6_bindstyleobject</div>
+</div>
+<style>
+    .classa{
+        color:red;
+    }
+    .classb{
+        font-size: 150%;
+    }
+</style>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            imgsrc:'../img/Koala.jpg',
+            weburl:"http://jspang.com/post/vue2-1.html",
+            classname:'classa',
+            isOK:false,
+            classa:'classa',
+            classb:'classb',
+            red:'GREEN',
+            font:'150%',
+            styleobject:{
+                color:'grey',
+                fontSize:'20px'
+            }
+        }
+    })
+</script>
+</body>
+</html>
+<body>
+
+</body>
+</html>
